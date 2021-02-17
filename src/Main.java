@@ -100,7 +100,7 @@ public class Main {
         String name = scanner.nextLine();
         System.out.println("Enter phone number: ");
         String phone = scanner.nextLine();
-        Contacts newContact = Contacts.createContact(name, phone);
+        Contacts newContact = Contacts.createContact(name, phone);  //this is referencing the Contact class but not creating a new instance of the class.  This is where the createContact method comes in...factory method
         if(mobilePhone.addNewContact(newContact)) {
             System.out.println("New contact added: " + name + ", phone = " + phone);
         } else {

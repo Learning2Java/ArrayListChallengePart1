@@ -10,7 +10,7 @@ public class MobilePhone {
     }
 
     public boolean addNewContact(Contacts contacts) {  // you are not setting the name and number, you are setting the object which is already created outside the method
-        if(findContact(contacts.getName()) >=0) {
+        if(findContact(contacts.getName()) >=0) {  //if a contact exists in the array, will return a number greater than 0 and therefore exists in the file
             System.out.println("Contact is already on file");
             return false;
         }
@@ -23,7 +23,11 @@ public class MobilePhone {
         if(foundPosition < 0) {
             System.out.println(oldContact.getName() + ", was not found.");
             return false;
+        } else if(findContact(newContact.getName()) != -1) {
+            System.out.println("Contact with name " + newContact.getName() + " already exists. Update was not successful");
+            return false;
         }
+
         this.myContacts.set(foundPosition, newContact);
         System.out.println(oldContact.getName() + ", was replaced with" + newContact.getName());
         return true;
